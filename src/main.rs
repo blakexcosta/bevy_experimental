@@ -206,16 +206,13 @@ pub const STAR_SIZE: f32 = 30.0; // This is star sprite pixels size
 pub const STAR_SPAWN_TIME: f32 = 1.0;
 pub const ENEMY_SPAWN_TIME: f32 = 5.0;
 
-#[derive(Component)]
-pub struct Player {}
 
-#[derive(Component)]
-pub struct Enemy {
-    pub direction: Vec2,
-}
+pub mod enemy;
+pub mod player;
+pub mod score;
+pub mod star;
 
-#[derive(Component)]
-pub struct Star {}
+
 
 #[derive(Resource)]
 pub struct Score {
@@ -264,6 +261,7 @@ impl Default for EnemySpawnTimer {
     }
 }
 
+// game over event
 pub struct GameOver {
     pub score: u32,
 }
